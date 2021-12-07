@@ -38,6 +38,11 @@ Run the following command to teardown the resources deployed.
 ```bash
 terraform destroy
 ```
+You might run into the following issue while running the command:
+```bash
+Error: DELETE https://api.digitalocean.com/v2/vpcs/06ec02c6-a2b3-4df1-a2z1-kfeq79bcac1c: 403 (request "bbfccz96-a1f0-43s0-qe24-ft802p5ne43o") Can not delete VPC with members
+```
+This is likely due to a race condition between deletion of cluster and vpc. Simply re-run the command to clean the vpc up.
 
 ## Requirements
 
