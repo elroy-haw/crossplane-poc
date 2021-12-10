@@ -1,0 +1,4 @@
+provider:
+  packages:
+    - crossplane/provider-aws:v0.21.2
+    - crossplane/provider-azure:v0.18.0

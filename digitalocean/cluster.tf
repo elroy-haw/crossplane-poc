@@ -14,7 +14,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   node_pool {
     name       = format("%s-default-worker-pool", local.project_name)
     size       = local.size
-    node_count = 1
+    node_count = 2
     auto_scale = false
     tags       = local.tags
   }

@@ -5,5 +5,7 @@ resource "helm_release" "crossplane" {
   version          = "1.5.1"
   namespace        = "crossplane-system"
   create_namespace = true
-  values           = []
+  values           = [
+    file("${path.module}/config/crossplane-values.yaml")
+  ]
 }
