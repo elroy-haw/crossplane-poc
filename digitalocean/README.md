@@ -5,7 +5,7 @@
 ### Deploy
 Once you have ensured you have the [required versions](#requirements) installed, use the following commands to deploy.
 ```bash
-cd infra
+cd digitalocean
 echo "do_token = \"<paste your do api token here>\"" > terraform.tfvars
 terraform init
 terraform apply -auto-approve
@@ -29,8 +29,8 @@ Run the following command to verify that the crossplane pods are up and running.
 ```bash
 kubectl get pods -n crossplane-system
 NAME                                      READY   STATUS    RESTARTS   AGE
-crossplane-7cfcfb84c9-tfzml               1/1     Running   0          9m5s
-crossplane-rbac-manager-cdcc7f487-bd22d   1/1     Running   0          9m5s
+crossplane-7cfcfb84c9-zj99x               1/1     Running   0          92s
+crossplane-rbac-manager-cdcc7f487-hld26   1/1     Running   0          92s
 ```
 
 ### Teardown
