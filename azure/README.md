@@ -59,3 +59,10 @@ az login
 az group list --query "[?name=='sqlserverpostgresql-rg']"
 az postgres server list --query "[?name=='sqlserverpostgresql41241']"
 ```
+The connection details to the PostgreSQL server has been written automatically to a secret specified in the `PostgreSQLServer` manifest, under `spec.writeConnectionSecretToRef`. See `azure/postgres.yaml`. To retrieve them, simply run the following commands.
+```bash
+ENDPOINT=$(kubectl get secrets -n crossplane-system sqlserverpostgresql-conn -o jsonpath='{.data.endpoint}' | base64 -d)
+PORT=$(kubectl get secrets -n crossplane-system sqlserverpostgresql-conn -o jsonpath='{.data.port}' | base64 -d)
+USERNAME=$(kubectl get secrets -n crossplane-system sqlserverpostgresql-conn -o jsonpath='{.data.username}' | base64 -d)
+PASSWORD=$(kubectl get secrets -n crossplane-system sqlserverpostgresql-conn -o jsonpath='{.data.password}' | base64 -d)
+```
